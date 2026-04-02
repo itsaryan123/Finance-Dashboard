@@ -13,18 +13,18 @@ export default function Header({ onMenuToggle }) {
 
   return (
     <header className="bg-gradient-to-r from-slate-50 via-blue-50 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-slate-200 dark:border-slate-700/50 sticky top-0 z-10 shadow-sm backdrop-blur-md bg-opacity-95 dark:bg-opacity-95">
-      <div className="px-6 py-4 flex justify-between items-center max-w-7xl mx-auto">
+      <div className="px-4 md:px-6 py-4 flex flex-col gap-4 md:flex-row md:justify-between md:items-center max-w-7xl mx-auto">
         <div className="group cursor-pointer">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 bg-clip-text text-transparent transition-all duration-300 group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-blue-600">
+          <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 bg-clip-text text-transparent transition-all duration-300 group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-blue-600">
             Finance Dashboard
           </h1>
           <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transition-all duration-300" />
-          <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">
+          <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 mt-2">
             🚀 Smart money management for modern life
           </p>
         </div>
-        
-        <div className="flex items-center gap-3">
+
+        <div className="w-full md:w-auto flex flex-wrap items-center gap-2 md:gap-3 justify-between md:justify-end">
           <button
             onClick={onMenuToggle}
             className="md:hidden p-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
@@ -49,19 +49,19 @@ export default function Header({ onMenuToggle }) {
           {/* Quick Role Toggle */}
           <button
             onClick={() => setUserRole(userRole === 'admin' ? 'viewer' : 'admin')}
-            className="px-3 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-lg font-semibold text-sm hover:opacity-90 transition"
+            className="px-3 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-lg font-semibold text-xs md:text-sm hover:opacity-90 transition"
             title="Toggle role"
           >
             {userRole === 'admin' ? 'Switch to Viewer' : 'Switch to Admin'}
           </button>
 
           {/* Current role badge */}
-          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${userRole === 'admin' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-800 dark:text-emerald-100' : 'bg-amber-100 text-amber-800 dark:bg-amber-800 dark:text-amber-100'}`}>
+          <span className={`hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-semibold ${userRole === 'admin' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-800 dark:text-emerald-100' : 'bg-amber-100 text-amber-800 dark:bg-amber-800 dark:text-amber-100'}`}>
             Role: {userRole}
           </span>
 
           {/* Role Switcher menu fallback (optional) */}
-          <div className="relative group">
+          <div className="relative group hidden md:block">
             <button
               onClick={() => setShowRoleMenu(!showRoleMenu)}
               className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg transition-all shadow-md hover:shadow-lg font-semibold text-sm transform hover:scale-105 active:scale-95"
